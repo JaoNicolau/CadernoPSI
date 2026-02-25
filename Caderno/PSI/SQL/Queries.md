@@ -126,3 +126,39 @@ SELECT *
     WHERE id = 1;
 
 
+==--15. Média das idades dos colaboradores com salário maior a 50000 por departamento--==
+
+SELECT department, AVG(age) AS average_age
+    FROM my_table
+    WHERE salary > 50000
+    GROUP BY department;
+
+  
+
+==--16. Salário por departamento ordenado por salário médio MAX, MIN, AVG--==
+==-- E a diferença entre o salário mais alto e o mais baixo por departamento--==
+
+SELECT department,
+    MAX(salary) AS max_salary,
+    MIN(salary) AS min_salary,
+    AVG(salary) AS average_salary,
+    (MAX(salary) - MIN(salary)) AS salary_range
+    FROM my_table
+    GROUP BY department
+    ORDER BY average_salary DESC;
+
+  
+
+==--17. Estatísticas de salário por departamento==
+==--para funcionarios com idade entre 25 e 34 anos==
+==--Departamento, número de colaboradores, salário médio, salário mínimo e salário máximo e o total de custos por departamento--==
+
+SELECT department,
+    COUNT(id) AS num_employees,
+    AVG(salary) AS average_salary,
+    MIN(salary) AS min_salary,
+    MAX(salary) AS max_salary,
+    SUM(salary) AS total_cos
+    FROM my_table
+    WHERE age BETWEEN 25 AND 34
+    GROUP BY department;
