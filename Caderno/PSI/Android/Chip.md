@@ -23,9 +23,7 @@ this.chipDone.setOnClickListener(v1 -> {
             .show();  
 });
 
-==/**==  
  ==***Método para controlar o que o user vê quando o estado do chip é alterado**==  
- ==*/==  
 private void changeChipDisplay() {  
     Boolean estadoDoChip = this.chipDone.isChecked();  
   
